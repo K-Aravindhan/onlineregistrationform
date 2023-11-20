@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Formstyle.css">
+    <script src="https://kit.fontawesome.com/1dba0f67ee.js" crossorigin="anonymous"></script>
+    <title>New User Registration form</title>
+</head>
+
+<body>
+    <h1>New user Registration Form</h1>
+    <div class="card">
+        <h2>Personal Information</h2>
+        <form>
+            <div class="formfields">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name1" placeholder="For ex:- John Mathews" />
+                <small class="success fas fa-check-circle"></small> <small  class="error fas fa-exclamation-circle"></small>
+                <p id="wrongentryname">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="phno">Phone number:</label>
+                <input type="text" id="phno" name="phno1" placeholder="For ex:- 86685 02484">
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="wrongentrynumber">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="DOB">Date of Birth:</label>
+                <input type="date" id="DOB" name="DOB1" placeholder="Select your date of birth here...">
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="dobError">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password1" placeholder="For ex:- Password@123">
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="pswrdError">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="gender">Select your Gender:</label>
+                <div class="radio">
+                    <input type="radio" id="male" class="radiobuttons" name="gender">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" class="radiobuttons" name="gender">
+                    <label for="female">Female</label>
+                    <input type="radio" id="others" class="radiobuttons" name="gender">
+                    <label for="others">Others</label>
+                </div>
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="genderError">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="E-mail" placeholder="For ex:- mathewsJ12@yahoo.com">
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="emailError">*This field is empty.</p>
+            </div>
+            <div class="formfields">
+                <label for="nation">Country:</label>
+                <select id="country" name="country">
+                    <option value="default">Choose your country</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="japan">Japan</option>
+                    <option value="india">India</option>
+                    <option value="china">China</option>
+                    <option value="brazil">Brazil</option>
+                    <option value="russia">Russia</option>
+                    <option value="south-africa">South Africa</option>
+                    <option value="egypt">Egypt</option>
+                    <option value="mexico">Mexico</option>
+                    <option value="argentina">Argentina</option>
+                </select>
+                <small class="success fas fa-check-circle"></small> <small class="error fas fa-exclamation-circle"></small>
+                <p id="CountryError">*This field is empty.</p>
+            </div>
+            <div class="formfields buttons">
+                <input type="submit" id="submitid" class="submit" value="Submit">
+                <input type="button" class="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+    <script src="formvalidation.js"></script>
+</body>
+</html>

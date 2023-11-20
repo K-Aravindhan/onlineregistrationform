@@ -1,0 +1,162 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #dde2f1;
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+    color: rgb(232, 231, 237);
+    padding: 30px;
+    background-color: #334785;
+}
+
+h2 {
+    text-align: left;
+}
+
+.card {
+    width: 600px;
+    background-color: rgb(255, 255, 255);
+    color: #334785;
+    border: solid 0px;
+    border-top: solid 4px #334785;
+    border-radius: 5px;
+    box-shadow: 8px 8px 3px 3px rgb(133, 133, 156);
+    padding: 20px;
+    margin: 40px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+form>div {
+    margin: 10px 0;
+    padding: 5px;
+    min-height: 35px;
+}
+
+.formfields>p, .formfields_error>p, .formfields_success>p {
+    visibility: hidden;
+    position: absolute;
+    font-size: small;
+}
+ 
+.formfields>label {
+    font-size: 16px;
+}
+
+.formfields>input, 
+.formfields>select,
+.formfields_error>input,
+.formfields_error>select,
+.formfields_success>input,
+.formfields_success>select
+{
+    border: 0px solid;
+    border-bottom: 1px solid #b1b1b1;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    min-height: 2em;
+}
+
+.formfields, .formfields_error , .formfields_success {
+    position: relative;
+}
+
+.formfields>small, .formfields_error>small, .formfields_success>small  {
+    visibility: hidden;
+    position: absolute;
+    top: 43px;
+    right: 30px;
+}
+
+.formfields_success>input:focus,
+.formfields_success>select:focus {
+    outline-color: #008753;
+}
+
+.formfields_success> .success
+{
+    visibility: visible;
+    color: #008753;
+}
+
+.formfields_success>.radio,
+.formfields_error>.radio{ 
+    display: flex;
+    flex-direction: row;
+    border: 0px solid;
+    font-size: 16px;
+    margin: 10px;
+    margin-top: 17px;
+    justify-content: space-evenly;
+}
+
+.formfields_error>input:focus,
+.formfields_error>select:focus {
+    outline-color: #cc0000;
+}
+
+.formfields_error>.error,
+.formfields_error>p {
+    visibility: visible;
+    color: #cc0000;
+    font-size: small;
+}
+
+.radio { 
+    display: flex;
+    flex-direction: row;
+    border: 0px solid;
+    font-size: 16px;
+    margin: 10px;
+    margin-top: 17px;
+    justify-content: space-evenly;
+}
+   
+
+.formfields>.radiobuttons {
+    margin: 5px;
+}
+
+input:focus,
+select:focus {
+    outline-color: #334785;
+    background-color: #e8e8e8;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.submit,
+.reset {
+    padding: 10px;
+    border: 0px;
+    background-color: #334785;
+    color: #dde2f1;
+    border-radius: 5px;
+    max-width: 10em;
+    cursor: pointer;
+}
+
+.submit:active,
+.reset:active {
+    opacity: 80%;
+}
