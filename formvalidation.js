@@ -1,6 +1,6 @@
 // Global variables qs
 let submitbutton = document.querySelector('.submit');
-let resetbutton = document.querySelector('reset');
+let resetbutton = document.querySelector('.reset');
 let allfieldscheck = document.querySelectorAll('input');
 
 // Global variables ids
@@ -8,7 +8,7 @@ let fullname = document.getElementById("name");
 let phno = document.getElementById("phno");
 let dob = document.getElementById("DOB");
 let password = document.getElementById("password");
-let gender = document.querySelector('input[name="gender"]:checked');
+
 let male = document.getElementById("male");
 let female = document.getElementById("female");
 let others = document.getElementById("others");
@@ -24,120 +24,76 @@ const passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 //function needs to be active anytime to check if the focus is in order
 
 submitbutton.addEventListener('click', function handleFormSubmission(event) {
-    event.preventDefault(); 
+    event.preventDefault();
+    let gender = document.querySelector('input[name="gender"]:checked');
+    if (fullname.value === "" || !fullname.value.match(letters) || phno.value === "" || !phno.value.match(numbers) || dob.value === "" || password.value === "" || password.value.length < 8 || !password.value.match(passwordformat) || !gender|| email.value === "" || !email.value.match(mailformat) || country.value === "default") {
+        focusevent(); //
+        alert("Please fill in all required fields.");
 
         if (fullname.value === "" || !fullname.value.match(letters)) {
-            fullname.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (phno.value === "" || !phno.value.match(numbers)) {
-            phno.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (dob.value === "") {
-            dob.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (password.value === "" || password.value.length < 8 || !password.value.match(passwordformat)) {
-            password.focus();  
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (!(male.checked || female.checked || others.checked)) {
-            male.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (email.value === "" || !email.value.match(mailformat)) {
-            email.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
-        } 
-
-        else if (country.value === "default") {
-            country.focus();
-            allfieldscheck.forEach(function (eachinputfield) {
-                if (eachinputfield !== gender) {
-                    eachinputfield.parentElement.className = "formfields_error";
-                } 
-                else {
-                    eachinputfield.closest('.formfields').className = "formfields_error";
-                }
-            })
-            country.parentElement.className = "formfields_error";
-            alert("Please fill in all required fields.");
+            fullname.parentElement.className = "formfields_error";
         }
-        
-
-    if (fullname.value !== "" && phno.value !== "" && dob.value !== "" && !gender && email.value !== "" && country.options[country.selectedIndex].value !== "default") {
-        allfieldscheck.forEach(function (eachinputfield) {
-            if (eachinputfield !== gender) {
-                eachinputfield.parentElement.className = "formfields_success";
-            } 
-            else {
-                eachinputfield.closest('.formfields').className = "formfields_success";
-            }
-        })
-        country.parentElement.className = "formfields_success";
-        alert("Your form is sucessfully submitted.");
+    
+        if (phno.value === "" || !phno.value.match(numbers)) {
+            phno.parentElement.className = "formfields_error";
+        }
+    
+        if (dob.value === "") {
+            dob.parentElement.className = "formfields_error";
+        }
+    
+        if (password.value === "" || password.value.length < 8 || !password.value.match(passwordformat)) {
+            password.parentElement.className = "formfields_error";
+        }
+    
+        if (!(male.checked || female.checked || others.checked)) {
+            document.getElementById("genderError").innerHTML = "Please select your gender.";
+            male.closest(".formfields").className = "formfields_error";
+        }
+        }
+    
+        if (email.value === "" || !email.value.match(mailformat)) {
+            email.parentElement.className = "formfields_error";
+        }
+    
+        if (country.value === "default") {
+            country.parentElement.className = "formfields_error";
+        }
+    else {
+        alert("Form submitted successfully");
     }
-})
+    })
+
+function focusevent() {
+    if (fullname.value === "" || !fullname.value.match(letters)) {
+        fullname.focus();
+    }
+
+    else if (phno.value === "" || !phno.value.match(numbers)) {
+        phno.focus();
+    }
+
+    else if (dob.value === "") {
+        dob.focus();
+    }
+
+    else if (password.value === "" || password.value.length < 8 || !password.value.match(passwordformat)) {
+        password.focus();
+    }
+
+    else if (!(male.checked || female.checked || others.checked)) {
+        male.focus();
+    }
+
+    else if (email.value === "" || !email.value.match(mailformat)) {
+        email.focus();
+    }
+
+    else if (country.value === "default") {
+        country.focus();
+    }
+}
+
 //For individual input checks
 for (let i = 0; i < allfieldscheck.length; i++) {
     // name
@@ -191,7 +147,7 @@ for (let i = 0; i < allfieldscheck.length; i++) {
     allfieldscheck[i].addEventListener('blur', function passwordvalidation() {
         if (allfieldscheck[i] === password) {
             if (password.value === "") {
-                document.getElementById("doberror").innerHTML = "This field is required.";
+                document.getElementById("pswrdError").innerHTML = "This field is required.";
                 allfieldscheck[i].parentElement.className = "formfields_error";
             }
             else if (password.value.length < 8) {
@@ -239,12 +195,13 @@ for (let i = 0; i < allfieldscheck.length; i++) {
         }
     })
 }
-selectfieldvalidation ();
-function selectfieldvalidation () {
+
+selectfieldvalidation();
+function selectfieldvalidation() {
     country.addEventListener('blur', function () {
         if (country.options[country.selectedIndex].value === "default") {
             document.getElementById("CountryError").innerHTML = "This field is required.";
-                country.parentElement.className = "formfields_error";
+            country.parentElement.className = "formfields_error";
         }
         else {
             country.parentElement.className = "formfields_success";
@@ -252,15 +209,23 @@ function selectfieldvalidation () {
     })
 }
 
-resetbutton.addEventListener("click", function() {
-    allfieldscheck.forEach(function (eachinputfield) {
-        eachinputfield.value = "";
-        if (eachinputfield !== gender) {
-            eachinputfield.parentElement.className = "formfields";
-        } 
-        else {
-            eachinputfield.closest('.formfields').className = "formfields";
+resetbutton.addEventListener("click", function () {
+    allfieldscheck.forEach(function (input) {
+        if ( input.type === "radio") {
+            input.closest('.formfields').className = "formfields";
+            input.checked = false;  
+        }
+        else if ( input.type === "text") {
+            input.parentElement.className = "formfields";
+            input.value = "";
+        }
+        else if (input.type === "button" || input.type === "submit") {
+            console.log("no changes");
         }
     })
-    country.parentElement.className = "formfields";
+    if (country && country.parentElement) {
+        country.parentElement.className = "formfields";
+    } else {
+        console.error("Country element or its parent element is not found.");
+    }
 })
